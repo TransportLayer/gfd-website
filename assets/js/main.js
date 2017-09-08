@@ -39,9 +39,28 @@
 
 					// Images (in the format of 'url': 'alignment').
 						images: {
-							'images/bg01.jpg': 'center',
-							'images/bg02.jpg': 'center',
-							'images/bg03.jpg': 'center'
+							'https://static.transportlayer.org/images/gfd/psiii/blur/01.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/02.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/03.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/04.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/05.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/06.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/07.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/08.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/09.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/10.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/11.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/12.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/13.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/14.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/15.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/16.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/17.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/18.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/19.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/20.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/21.jpg': 'center',
+							'https://static.transportlayer.org/images/gfd/psiii/blur/22.jpg': 'center'
 						},
 
 					// Delay.
