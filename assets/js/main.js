@@ -1,126 +1,100 @@
 /*
-	Eventually by HTML5 UP
+	Spectral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function() {
+(function($) {
 
-	"use strict";
-
-	// Methods/polyfills.
-
-		// classList | (c) @remy | github.com/remy/polyfills | rem.mit-license.org
-			!function(){function t(t){this.el=t;for(var n=t.className.replace(/^\s+|\s+$/g,"").split(/\s+/),i=0;i<n.length;i++)e.call(this,n[i])}function n(t,n,i){Object.defineProperty?Object.defineProperty(t,n,{get:i}):t.__defineGetter__(n,i)}if(!("undefined"==typeof window.Element||"classList"in document.documentElement)){var i=Array.prototype,e=i.push,s=i.splice,o=i.join;t.prototype={add:function(t){this.contains(t)||(e.call(this,t),this.el.className=this.toString())},contains:function(t){return-1!=this.el.className.indexOf(t)},item:function(t){return this[t]||null},remove:function(t){if(this.contains(t)){for(var n=0;n<this.length&&this[n]!=t;n++);s.call(this,n,1),this.el.className=this.toString()}},toString:function(){return o.call(this," ")},toggle:function(t){return this.contains(t)?this.remove(t):this.add(t),this.contains(t)}},window.DOMTokenList=t,n(Element.prototype,"classList",function(){return new t(this)})}}();
-
-		// canUse
-			window.canUse=function(p){if(!window._canUse)window._canUse=document.createElement("div");var e=window._canUse.style,up=p.charAt(0).toUpperCase()+p.slice(1);return p in e||"Moz"+up in e||"Webkit"+up in e||"O"+up in e||"ms"+up in e};
-
-		// window.addEventListener
-			(function(){if("addEventListener"in window)return;window.addEventListener=function(type,f){window.attachEvent("on"+type,f)}})();
-
-	// Vars.
-		var	$body = document.querySelector('body');
-
-	// Disable animations/transitions until everything's loaded.
-		$body.classList.add('is-loading');
-
-		window.addEventListener('load', function() {
-			window.setTimeout(function() {
-				$body.classList.remove('is-loading');
-			}, 100);
+	skel
+		.breakpoints({
+			xlarge:	'(max-width: 1680px)',
+			large:	'(max-width: 1280px)',
+			medium:	'(max-width: 980px)',
+			small:	'(max-width: 736px)',
+			xsmall:	'(max-width: 480px)'
 		});
 
-	// Slideshow Background.
-		(function() {
+	$(function() {
 
-			// Settings.
-				var settings = {
+		var	$window = $(window),
+			$body = $('body'),
+			$wrapper = $('#page-wrapper'),
+			$banner = $('#banner'),
+			$header = $('#header');
 
-					// Images (in the format of 'url': 'alignment').
-						images: {
-							'https://static.transportlayer.org/images/gfd/psiii/blur/01.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/02.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/03.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/04.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/05.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/06.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/07.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/08.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/09.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/10.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/11.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/12.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/13.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/14.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/15.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/16.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/17.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/18.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/19.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/20.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/21.jpg': 'center',
-							'https://static.transportlayer.org/images/gfd/psiii/blur/22.jpg': 'center'
-						},
+		// Disable animations/transitions until the page has loaded.
+			$body.addClass('is-loading');
 
-					// Delay.
-						delay: 6000
+			$window.on('load', function() {
+				window.setTimeout(function() {
+					$body.removeClass('is-loading');
+				}, 100);
+			});
 
-				};
+		// Mobile?
+			if (skel.vars.mobile)
+				$body.addClass('is-mobile');
+			else
+				skel
+					.on('-medium !medium', function() {
+						$body.removeClass('is-mobile');
+					})
+					.on('+medium', function() {
+						$body.addClass('is-mobile');
+					});
 
-			// Vars.
-				var	pos = 0, lastPos = 0,
-					$wrapper, $bgs = [], $bg,
-					k, v;
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
 
-			// Create BG wrapper, BGs.
-				$wrapper = document.createElement('div');
-					$wrapper.id = 'bg';
-					$body.appendChild($wrapper);
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
+				$.prioritize(
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
+				);
+			});
 
-				for (k in settings.images) {
+		// Scrolly.
+			$('.scrolly')
+				.scrolly({
+					speed: 1500,
+					offset: $header.outerHeight()
+				});
 
-					// Create BG.
-						$bg = document.createElement('div');
-							$bg.style.backgroundImage = 'url("' + k + '")';
-							$bg.style.backgroundPosition = settings.images[k];
-							$wrapper.appendChild($bg);
+		// Menu.
+			$('#menu')
+				.append('<a href="#menu" class="close"></a>')
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'right',
+					target: $body,
+					visibleClass: 'is-menu-visible'
+				});
 
-					// Add it to array.
-						$bgs.push($bg);
+		// Header.
+			if (skel.vars.IEVersion < 9)
+				$header.removeClass('alt');
 
-				}
+			if ($banner.length > 0
+			&&	$header.hasClass('alt')) {
 
-			// Main loop.
-				$bgs[pos].classList.add('visible');
-				$bgs[pos].classList.add('top');
+				$window.on('resize', function() { $window.trigger('scroll'); });
 
-				// Bail if we only have a single BG or the client doesn't support transitions.
-					if ($bgs.length == 1
-					||	!canUse('transition'))
-						return;
+				$banner.scrollex({
+					bottom:		$header.outerHeight() + 1,
+					terminate:	function() { $header.removeClass('alt'); },
+					enter:		function() { $header.addClass('alt'); },
+					leave:		function() { $header.removeClass('alt'); }
+				});
 
-				window.setInterval(function() {
+			}
 
-					lastPos = pos;
-					pos++;
+	});
 
-					// Wrap to beginning if necessary.
-						if (pos >= $bgs.length)
-							pos = 0;
-
-					// Swap top images.
-						$bgs[lastPos].classList.remove('top');
-						$bgs[pos].classList.add('visible');
-						$bgs[pos].classList.add('top');
-
-					// Hide last image after a short delay.
-						window.setTimeout(function() {
-							$bgs[lastPos].classList.remove('visible');
-						}, settings.delay / 2);
-
-				}, settings.delay);
-
-		})();
-
-})();
+})(jQuery);
