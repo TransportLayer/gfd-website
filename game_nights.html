@@ -103,9 +103,13 @@
                                     if (hour > 18 && days===0) {
                                         document.getElementById("countdown").innerHTML = "Gamenight has started for today join our discord to join!";
                                     } else {
-                                        document.getElementById("countdown").innerHTML = days + " Days, "+hours+" Hours, "+minutes+" Minutes & "+seconds+" Seconds untill next gamenight!";
+                                        document.getElementById("countdown").innerHTML = plural(days, "Day") + ", " + plural(hours, "Hour") + ", " + plural(minutes, "Minute") + " & " + plural(seconds, "Second") + " until next gamenight!";
                                     }
                                 }, 1000);
+				    
+                                function plural(number, text) {
+				    return (number == 1) ? number+" "+text : number+" "+text+"s";	
+				}
                             </script>
 
 						</div>
