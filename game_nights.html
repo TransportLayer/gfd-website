@@ -6,8 +6,9 @@
 -->
 <html>
 	<head>
-		<link href="./assets/fonts/css/fontawesome-all.css" rel="stylesheet">
-		<title>Gamemode4d - Team GFD</title>
+		<link href="./assets/fonts/css/fontawesome-all.css" rel="stylesheet" />
+        <link rel="icon" href="favicon.ico">
+		<title>Gamenights - Team GFD</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/general.css" />
@@ -44,42 +45,68 @@
 				<!-- Main -->
 				<article id="main">
 					<header>
-						<h2>GFD Gamenights?</h2>
-						<p>All the info about the game nights</p>
+						<h2>GFD Gamenights</h2>
+						<p>All the info about our weekly gamenights</p>
 					</header>
 					<section class="wrapper style5">
 						<div class="inner">
 
 							<h3>What we play:</h3>
-                            <p>All games we play outside of mc we aim to keep to free to allow everone to join!</p>
-							<p>Most weeks we start the game night on hypixl and then play some of the following:</p>
+                            <p>All games we play outside of Minecraft we aim to keep to free to allow everyone to join!</p>
+							<p>Most weeks we start the game night on Hypixel and then play some of the following:</p>
 							<ul>
                                 <li>Infinitri </li>
                                 <li>Missile Wars </li>
                                 <li>Combat cube </li>
                                 <li>Pallet 7 Siege </li>
                                 <li>Entrapment </li>
-                                <li>Town of Salem </li>
-                                <li>Cards Against Humanity </li>
-                                <li>Skribblio </li>
+                                <li><a href="http://blankmediagames.com/TownOfSalem/" target="_blank">Town of Salem </a></li>
+                                <li><a href="https://pyx-3.pretendyoure.xyz/zy/game.jsp" target="_blank">Cards Against Humanity </a></li>
+                                <li><a href="https://skribbl.io/" target="_blank">Skribbl.io </a></li>
                                 <li>and lots LOTS MORE! </li>
                             </ul>
                             <p>Every week we aim to change it up and are constantly adding new mini-games and listening to what people want to play!</p>
+							<p>You can vote for what games we play here! <a href="https://goo.gl/forms/YCb2Qi72RpMpPuDi1" target="_blank">Gamenight Google Form</a><p/>
+							
 							<hr />
-
-							<h3>When we play it:</h3>
+							
+							<h3>When we play host it:</h3>
 							<p>Gamenights are normally hosted weekly on Saturday at 7pm UTC! Join our discord to find out more info including:</p>
                             <ul>
                                 <li>What we will play!</li>
                                 <li>To check if there is a change of time!</li>
                                 <li>For any special events!</li>
-                                <li>And Best of all to participate!</li>
+                                <li>And best of all to participate!</li>
                             </ul>
-                            <a href="https://discord.io/teamgfd" class="fab fa-discord">Discord!</a>
+                            <a href="https://discord.io/teamgfd" class="fab fa-discord" target="_blank">Discord!</a>
 							<hr />
 
 							<h3>Next potential game night:</h3>
-                            <p>Countdown coming soon! </p>
+                            <p>Count down to next Saturday at 7pm UTC: </p>
+                            <p id="countdown"></p>
+                            
+                            <script>
+                                var y = setInterval (function() {
+                                    var days = 6 - (new Date().getUTCDay());
+                                    var hour = new Date().getUTCHours();
+                                    var minutes = 59-(new Date().getUTCMinutes());
+                                    var seconds = 59-(new Date().getUTCSeconds());
+                                    
+                                    if (hour < 18) {
+                                        var hours = 18-hour;
+                                    } else if (hour > 18) {
+                                        var hours = 42-hour;
+                                    } else {
+                                        var hours=0;
+                                    }
+                                    
+                                    if (hour > 18 && day===6) {
+                                        document.getElementById("countdown").innerHTML = "Gamenight has started for today join our discord to join!";
+                                    } else {
+                                        document.getElementById("countdown").innerHTML = days + " Days, "+hours+" Hours, "+minutes+" Minutes & "+seconds+" Seconds untill next gamenight!";
+                                    }
+                                }, 1000);
+                            </script>
 
 						</div>
 					</section>
@@ -88,12 +115,12 @@
 				<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="https://twitter.com/GFDGuys" class="fab fa-twitter"></a></li>
-						<li><a href="http://youtube.teamgfd.com" class="fab fa-youtube"></a></li>
-						<li><a href="https://discord.io/teamgfd" class="fab fa-discord"></a></li>
+						<li><a href="https://twitter.com/GFDGuys" class="fab fa-twitter" target="_blank"></a></li>
+						<li><a href="http://youtube.teamgfd.com" class="fab fa-youtube" target="_blank"></a></li>
+						<li><a href="https://discord.io/teamgfd" class="fab fa-discord"  target="_blank"></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; kruthers</li><li>Base Template from: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; kruthers</li><li>Base Template from: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
 					</ul>
 				</footer>
 				
