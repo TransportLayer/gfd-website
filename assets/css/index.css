@@ -496,6 +496,39 @@
 				border-radius: 0;
 				width: 100%;
 			}
+            
+            .spotlight .image .gm4Image {
+                display: none;
+            }
+            
+            .spotlight .image .gameImage {
+                display: none;
+            }
+            
+            .spotlight .image .modpackImage {
+                display: none;
+            }
+            
+            .spotlight .image .fade {
+              -webkit-animation-name: fade;
+              -webkit-animation-duration: 6s;
+              animation-name: fade;
+              animation-duration: 6s;
+            }
+
+            @-webkit-keyframes fade {
+              0%{opacity: 0} 
+              35%{opacity: 1}
+              65%{opacity: 1}
+              100%{opacity: 0}
+            }
+
+            @keyframes fade {
+              0%{opacity: 0} 
+              35%{opacity: 1}
+              65%{opacity: 1}
+              100%{opacity: 0}
+            }
 
 		.spotlight .content {
 			padding: 2em 4em 0.1em 4em ;
