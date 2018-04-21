@@ -103,6 +103,8 @@
                                     
                                     if (hour > 18 && days===0) {
                                         document.getElementById("countdown").innerHTML = "Gamenight has started for today join our discord to join!";
+                                    } else if (hour > 18 && days===1) { 
+                                        document.getElementById("countdown").innerHTML = "0 Days, " + plural(hours, "Hour") + ", " + plural(minutes, "Minute") + " & " + plural(seconds, "Second") + " until next gamenight!";
                                     } else {
                                         document.getElementById("countdown").innerHTML = plural(days, "Day") + ", " + plural(hours, "Hour") + ", " + plural(minutes, "Minute") + " & " + plural(seconds, "Second") + " until next gamenight!";
                                     }
