@@ -62,6 +62,7 @@
                                 <li>Entrapment </li>
                                 <li><a href="http://blankmediagames.com/TownOfSalem/" target="_blank">Town of Salem </a></li>
                                 <li><a href="https://pyx-3.pretendyoure.xyz/zy/game.jsp" target="_blank">Cards Against Humanity </a></li>
+								<li><a href="https://jackbox.tv/" target="_blank">Jackbox Games </a></li>
                                 <li><a href="https://skribbl.io/" target="_blank">Skribbl.io </a></li>
 								<li>Secret role games</li>
                                 <li>and lots LOTS MORE! </li>
@@ -84,35 +85,8 @@
 
 							<h3>Next potential game night:</h3>
                             <p>Count down to next Saturday at 7pm UTC: </p>
-                            <p id="countdown"></p>
+                            <p <!--id="countdown"-->>Being rewritten</p>
                             
-                            <script>
-                                var y = setInterval (function() {
-                                    var days = 6 - (new Date().getUTCDay());
-                                    var hour = new Date().getUTCHours();
-                                    var minutes = 59-(new Date().getUTCMinutes());
-                                    var seconds = 59-(new Date().getUTCSeconds());
-                                    
-                                    if (hour < 18) {
-                                        var hours = 18-hour;
-                                    } else if (hour > 18) {
-                                        var hours = 42-hour;
-                                        days=days-1;
-                                    } else {
-                                        var hours=0;
-                                    }
-                                    
-                                    if (hour > 18 && days===0) {
-                                        document.getElementById("countdown").innerHTML = "Gamenight has started for today join our discord to join!";
-                                    } else {
-                                        document.getElementById("countdown").innerHTML = plural(days, "Day") + ", " + plural(hours, "Hour") + ", " + plural(minutes, "Minute") + " & " + plural(seconds, "Second") + " until next gamenight!";
-                                    }
-                                }, 1000);
-				    
-                                function plural(number, text) {
-				    return (number == 1) ? number+" "+text : number+" "+text+"s";	
-				}
-                            </script>
 
 						</div>
 					</section>
