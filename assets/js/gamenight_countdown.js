@@ -45,7 +45,7 @@ var y = setInterval (function() {
 		document.getElementById("nextNight").innerHTML = "Gamenight is in progress, join the discord to join";
 	} else if (timeLeft >= 1) {
 		document.getElementById("nextNight").innerHTML = ("The next scheduled gamenight is on the Saturday, "+date+" "+MONTHS[month]+" "+year+" at "+TIME[0]+":"+TIME[1]+":00 UTC"+
-		"<br/> Which is in "+plural(days, "Day")+", "+plural(hours, "Hour")+", "+plural(minutes, "Minutes")+" and "+plural(seconds, "Second"));
+		"<br/> Which is in "+plural(days, "Day")+", "+plural(hours, "Hour")+", "+plural(minutes, "Minute")+" and "+plural(seconds, "Second"));
 	} else {
 		document.getElementById("nextNight").innerHTML = "Countdown has failed, Please refresh if you continue to see this message please DM kruthers#7770 on discord.";
 		console.log(timeLeft);
